@@ -30,5 +30,11 @@ class SecondActivity : AppCompatActivity() {
             setResult(Activity.RESULT_OK, Intent().putExtra(MainActivity.KEY_COUNT, count))
             finish()
         }
+
+        rv_city.adapter = CityAdapter(CityRepository.cities) { id ->
+            val intent = Intent(this, CityActivity::class.java)
+            intent.putExtra("ID", id)
+            startActivity(intent)
+        }
     }
 }
